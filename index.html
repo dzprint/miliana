@@ -336,48 +336,33 @@ footer{text-align:center}
 
 
 
-/* ===== HERO LOGOS ===== */
+/* ===== HERO LOGO PLACEHOLDERS ===== */
+.hero-logos{position:absolute;top:96px;left:40px;right:40px;z-index:3;display:flex;justify-content:space-between;align-items:flex-start;pointer-events:none;}
+.hero-logo{width:110px;height:110px;object-fit:contain;display:block;}
+@media(max-width:760px){.hero-logos{top:82px;left:22px;right:22px}.hero-logo{width:76px;height:76px}}
+
+/* ===== HERO SVG LOGO PLACEHOLDERS ===== */
 .hero-logos{
   position:absolute;
-  top:96px;
+  top:82px;
   left:40px;
   right:40px;
-
+  z-index:4;
   display:flex;
   justify-content:space-between;
   align-items:flex-start;
-
-  z-index:3;
   pointer-events:none;
 }
-
 .hero-logo{
   width:110px;
   height:110px;
   object-fit:contain;
   display:block;
 }
-
-/* ===== MOBILE ===== */
 @media(max-width:760px){
-
-  .hero-logos{
-    top:82px;
-    left:22px;
-    right:22px;
-  }
-
-  .hero-logo{
-    width:76px;
-    height:76px;
-  }
-
-  /* Move only the hero content down on small screens */
-  .hero-content{
-    padding-top:110px;
-  }
+  .hero-logos{top:112px;left:22px;right:22px;}
+  .hero-logo{width:76px;height:76px;}
 }
-
 
 
 
