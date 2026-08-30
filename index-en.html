@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Walls of Miliana — Historical Genesis of the Ramparts</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&amp;family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;1,7..72,400&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#15130E;
+  --bg-alt:#1D1912;
+  --panel:#251F16;
+  --stone:#4E4536;
+  --stone-line:#5A5039;
+  --stone-light:#A99878;
+  --gold:#C9963E;
+  --gold-dim:#8C6E38;
+  --verdigris:#6C8C7A;
+  --paper:#ECE2CB;
+  --paper-dim:#B6AA8D;
+  --paper-faint:#84795F;
+  --shadow: 0 30px 60px -20px rgba(0,0,0,0.6);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--paper);
+  font-family:'Literata', serif;
+  font-size:17px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:var(--gold); color:#1a1710;}
+a{color:inherit;}
+img{display:block; max-width:100%;}
+
+.wrap{max-width:1180px; margin:0 auto; padding:0 40px;}
+.prose{max-width:700px;}
+
+h1,h2,h3,h4{font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.01em; color:var(--paper);}
+
+.eyebrow{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:12.5px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--gold);
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:22px;
+}
+.eyebrow::before{
+  content:"";
+  width:26px; height:1px; background:var(--gold-dim);
+}
+.eyebrow .ar{
+  font-family:'Fraunces', serif;
+  color:var(--stone-light);
+  font-style:italic;
+  font-weight:400;
+  letter-spacing:0;
+  text-transform:none;
+  font-size:13px;
+}
+
+/* ===== NAV ===== */
+header.site-nav{
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 40px;
+  background:linear-gradient(to bottom, rgba(21,19,14,0.92), rgba(21,19,14,0));
+  backdrop-filter: blur(2px);
+  font-family:'IBM Plex Mono', monospace;
+  font-size:11.5px;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  transition: background .3s ease, box-shadow .3s ease;
+}
+header.site-nav.scrolled{
+  background:rgba(21,19,14,0.88);
+  box-shadow:0 1px 0 var(--stone-line);
+}
+.brand{display:flex; align-items:center; gap:10px; font-family:'Fraunces',serif; font-size:15pt; text-transform:none; letter-spacing:0; color:var(--paper);}
+.brand .mono{
+  width:30px; height:30px; border:1px solid var(--gold-dim); border-radius:2px;
+  display:flex; align-items:center; justify-content:center; color:var(--gold);
+  font-family:'Fraunces', serif; font-style:italic; font-size:16px;
+  clip-path: polygon(15% 0, 85% 0, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0 85%, 0 15%);
+}
+nav.links{display:flex; gap:26px;}
+nav.links a{color:var(--paper-dim); text-decoration:none; transition:color .2s;}
+nav.links a:hover{color:var(--gold);}
+.nav-toggle{display:none;}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;
+  height:100vh; min-height:640px;
+  display:flex; align-items:flex-end;
+  overflow:hidden;
+}
+.hero-img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:saturate(0.85) brightness(0.62);
+  animation: hero-in 2.4s ease-out both;}
+@keyframes hero-in{from{transform:scale(1.08); opacity:0;} to{transform:scale(1); opacity:1;}}
+.hero::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(15,13,9,0.96) 5%, rgba(15,13,9,0.35) 55%, rgba(15,13,9,0.55) 100%);
+}
+.hero-content{position:relative; z-index:2; padding:0 40px 76px; width:100%;height:70%;}
+.hero-tag{
+  font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--stone-light); max-width:640px; line-height:1.9; margin-bottom:26px;
+  animation: fade-up 1s ease .3s both;
+}
+.hero h1{
+  font-size:clamp(48px, 8.4vw, 108px);
+  line-height:0.96;
+  letter-spacing:-0.02em;
+  color:var(--paper);
+  animation: fade-up 1.1s ease .45s both;
+}
+.hero h1 em{color:var(--gold); font-style:italic; font-weight:500;}
+.hero-sub{
+  margin-top:24px; max-width:560px; font-family:'Fraunces', serif; font-style:italic; font-weight:400;
+  font-size:20px; color:var(--paper-dim);
+  animation: fade-up 1.1s ease .6s both;
+}
+@keyframes fade-up{from{opacity:0; transform:translateY(22px);} to{opacity:1; transform:translateY(0);}}
+.scroll-cue{
+  position:absolute; z-index:2; bottom:28px; left:40px;
+  display:flex; align-items:center; gap:10px;
+  font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:0.14em; color:var(--paper-faint);
+  text-transform:uppercase;
+}
+.scroll-cue .line{width:1px; height:34px; background:var(--stone-light); position:relative; overflow:hidden;}
+.scroll-cue .line::after{content:""; position:absolute; top:-100%; left:0; width:100%; height:100%; background:var(--gold); animation:cue 2.2s ease-in-out infinite;}
+@keyframes cue{0%{top:-100%;} 60%{top:100%;} 100%{top:100%;}}
+
+/* ===== SECTIONS ===== */
+section{padding:120px 0; position:relative; border-bottom:1px solid var(--stone-line);}
+section:last-of-type{border-bottom:none;}
+.section-head{margin-bottom:56px;}
+h2.section-title{font-size:clamp(30px,4vw,46px); line-height:1.06; max-width:820px;}
+.lede{font-family:'Fraunces', serif; font-style:italic; font-weight:400; font-size:21px; color:var(--paper-dim); max-width:640px; margin-top:18px;}
+
+.reveal{opacity:0; transform:translateY(28px); transition:opacity .9s ease, transform .9s ease;}
+.reveal.in{opacity:1; transform:translateY(0);}
+
+figure{margin:0;}
+figcaption{
+  font-family:'IBM Plex Mono', monospace; font-size:11.5px; letter-spacing:0.06em; color:var(--paper-faint);
+  margin-top:14px; padding-left:16px; border-left:1px solid var(--gold-dim);
+}
+.frame-img{width:100%; border-radius:2px; box-shadow:var(--shadow);}
+
+/* ===== INTRO layout ===== */
+.split{display:grid; grid-template-columns:1.05fr 0.95fr; gap:64px; align-items:start;}
+.split.rev{grid-template-columns:0.95fr 1.05fr;}
+.split.rev .media{order:2;}
+
+/* ===== SITUATION ===== */
+.compass{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--stone-line);
+  border:1px solid var(--stone-line); margin-top:44px;
+}
+.compass .cell{background:var(--bg-alt); padding:26px 22px;}
+.compass .dir{font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:0.14em; color:var(--gold); text-transform:uppercase; margin-bottom:10px;}
+.compass .place{font-family:'Fraunces', serif; font-size:19px; color:var(--paper);}
+.compass .dist{font-family:'IBM Plex Mono', monospace; font-size:10pt; color:var(--paper-faint); margin-top:6px;}
+.stat-row{display:flex; flex-wrap:wrap; gap:38px; margin-top:46px;}
+.stat{min-width:120px;}
+.stat .num{font-family:'Fraunces', serif; font-size:38px; color:var(--gold); font-weight:500; line-height:1;}
+.stat .lab{font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--paper-faint); margin-top:8px;}
+
+/* ===== HISTOIRE timeline ===== */
+.spine{position:relative; padding-left:34px; border-left:1px solid var(--stone-line); margin-top:12px;}
+.spine .era{position:relative; padding-bottom:52px;}
+.spine .era:last-child{padding-bottom:0;}
+.spine .era::before{
+  content:""; position:absolute; left:-39px; top:6px; width:9px; height:9px; border-radius:50%;
+  background:var(--bg); border:2px solid var(--gold);
+}
+.spine .era h4{font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:10px;}
+.spine .era p{color:var(--paper-dim); max-width:640px;}
+.spine .era p + p{margin-top:12px;}
+
+/* ===== MURAILLE présentation ===== */
+.stat-band{
+  display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--stone-line); margin:50px 0 10px;
+}
+.stat-band .cell{padding:30px 24px; border-right:1px solid var(--stone-line);}
+.stat-band .cell:last-child{border-right:none;}
+.stat-band .num{font-family:'Fraunces', serif; font-size:32px; color:var(--gold); font-weight:500;}
+.stat-band .lab{font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:0.08em; color:var(--paper-faint); text-transform:uppercase; margin-top:8px; line-height:1.5;}
+
+/* ===== PORTES gallery ===== */
+.gate-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:2px; background:var(--stone-line); margin-top:50px; border:1px solid var(--stone-line);}
+.gate-card{background:var(--bg-alt); overflow:hidden; position:relative;}
+.gate-card .gimg-wrap{position:relative; aspect-ratio:4/3; overflow:hidden; background:var(--panel);}
+.gate-card img{width:100%; height:100%; object-fit:cover; filter:saturate(0.8) brightness(0.85); transition:transform .8s ease, filter .8s ease;}
+.gate-card:hover img{transform:scale(1.06); filter:saturate(1) brightness(0.95);}
+.gate-card.noimg .gimg-wrap{display:flex; align-items:center; justify-content:center;}
+.bastion-icon{width:64px; height:64px; border:1px solid var(--gold-dim); clip-path:polygon(50% 0,100% 35%,82% 100%,18% 100%,0 35%); display:flex; align-items:center; justify-content:center; color:var(--gold); font-family:'Fraunces',serif; font-style:italic;}
+.gate-body{padding:28px 30px 34px;}
+.gate-body .gname{font-family:'Fraunces', serif; font-size:22px; color:var(--paper); margin-bottom:4px;}
+.gate-body .galt{font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--gold); letter-spacing:0.06em; margin-bottom:14px; text-transform:uppercase;}
+.gate-body p{color:var(--paper-dim); font-size:15.5px;}
+
+/* ===== ERA MORPH — signature element ===== */
+.morph-wrap{margin-top:54px;}
+.morph-frame{
+  position:relative;
+  aspect-ratio:16/9;
+  clip-path: polygon(0% 2%, 3% 0%, 97% 0%, 100% 3%, 100% 97%, 97% 100%, 3% 100%, 0% 98%, 0% 60%, 1.4% 58%, 0% 55%, 0% 45%, 1.2% 43%, 0% 41%);
+  background:#000;
+  box-shadow:var(--shadow);
+  border:1px solid var(--stone-line);
+}
+.morph-frame .layer{position:absolute; inset:0;}
+.morph-frame img{width:100%; height:100%; object-fit:cover;}
+.morph-frame .layer{opacity:0; transition:opacity 1.1s ease, filter 1.1s ease, transform 1.4s ease; filter:blur(6px) saturate(0.7); transform:scale(1.04);}
+.morph-frame .layer.active{opacity:1; filter:blur(0) saturate(0.92) brightness(0.94); transform:scale(1);}
+.morph-frame .sweep{
+  position:absolute; inset:0; pointer-events:none; opacity:0;
+  background:linear-gradient(100deg, transparent 40%, rgba(201,150,62,0.55) 50%, transparent 60%);
+  background-size:300% 100%; background-position:120% 0;
+}
+.morph-frame .sweep.go{opacity:1; transition:background-position 1s ease, opacity .3s ease .8s; background-position:-40% 0;}
+.morph-frame::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(to top, rgba(10,9,6,0.85) 0%, rgba(10,9,6,0.05) 38%, rgba(10,9,6,0.25) 100%);
+}
+.morph-overlay{position:absolute; left:0; right:0; bottom:0; z-index:2; padding:30px 34px; display:flex; justify-content:space-between; align-items:flex-end; gap:30px;}
+.morph-tag{font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); margin-bottom:8px;}
+.morph-title{font-family:'Fraunces', serif; font-size:clamp(24px,3vw,34px); color:var(--paper);}
+.morph-dates{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--paper-dim); margin-top:6px;}
+.morph-stats{display:flex; gap:26px; text-align:left;}
+.morph-stats .s{min-width:110px;}
+.morph-stats .s .k{font-family:'IBM Plex Mono', monospace; font-size:9.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--paper-faint);}
+.morph-stats .s .v{font-family:'Fraunces', serif; font-size:15px; color:var(--paper); margin-top:4px;}
+
+.morph-desc{max-width:700px; margin-top:26px; color:var(--paper-dim); min-height:96px;}
+
+.era-tabs{display:flex; flex-wrap:wrap; gap:10px; margin-top:30px;}
+.era-tab{
+  font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.05em;
+  background:none; border:1px solid var(--stone-line); color:var(--paper-faint);
+  padding:10px 16px; cursor:pointer; clip-path:polygon(8% 0,100% 0,100% 70%,92% 100%,0 100%,0 30%);
+  transition:all .25s ease; text-transform:uppercase;
+}
+.era-tab:hover{color:var(--paper); border-color:var(--stone-light);}
+.era-tab.active{color:#151009; background:var(--gold); border-color:var(--gold);}
+
+.era-progress{display:flex; gap:6px; margin-top:18px;}
+.era-progress i{flex:1; height:2px; background:var(--stone-line); position:relative; overflow:hidden;}
+.era-progress i.done{background:var(--gold-dim);}
+.era-progress i.now::after{content:""; position:absolute; inset:0; background:var(--gold);}
+
+/* ===== 2023 gallery ===== */
+.duo{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:48px;}
+.duo img{width:100%; height:100%; object-fit:cover; aspect-ratio:4/3; box-shadow:var(--shadow);}
+.callout{
+  margin-top:44px; border-left:2px solid var(--gold); padding:6px 0 6px 26px;
+  font-family:'Fraunces', serif; font-style:italic; font-size:19px; color:var(--paper-dim); max-width:640px;
+}
+
+/* ===== SYNTHESE table ===== */
+.syn-table{width:100%; border-collapse:collapse; margin-top:40px; font-size:15px;}
+.syn-table th{
+  text-align:left; font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--gold); padding:14px 20px 14px 0; border-bottom:1px solid var(--stone-line);
+}
+.syn-table td{padding:20px 20px 20px 0; border-bottom:1px solid var(--stone-line); vertical-align:top; color:var(--paper-dim);}
+.syn-table td.period{color:var(--paper); font-family:'Fraunces', serif; font-size:16.5px; white-space:nowrap; padding-right:30px;}
+.syn-table ul{padding-left:18px;}
+.syn-table li{margin-bottom:4px;}
+
+/* ===== CONCLUSION ===== */
+.conclusion-block{max-width:740px;}
+.conclusion-block p{font-size:19px; font-family:'Fraunces', serif; font-weight:400; line-height:1.65; color:var(--paper-dim);}
+.conclusion-block p em{color:var(--gold); font-style:italic;}
+
+/* ===== REFS ===== */
+.refs{margin-top:40px; columns:2; column-gap:60px; max-width:900px;}
+.refs li{list-style:none; font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--paper-faint); margin-bottom:16px; padding-left:18px; position:relative; break-inside:avoid;}
+.refs li::before{content:"—"; position:absolute; left:0; color:var(--gold-dim);}
+
+footer{padding:70px 0 50px; text-align:center;}
+footer .fmark{width:38px; height:38px; margin:0 auto 22px; border:1px solid var(--gold-dim); clip-path:polygon(15% 0, 85% 0, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0 85%, 0 15%); display:flex; align-items:center; justify-content:center; color:var(--gold); font-family:'Fraunces', serif; font-style:italic;}
+footer .finst{font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--paper-faint); line-height:2;}
+footer .fnote{margin-top:22px; font-family:'Fraunces', serif; font-style:italic; color:var(--stone-light); font-size:14px;}
+
+@media (max-width:920px){
+  .wrap{padding:0 22px;}
+  nav.links{display:none;}
+  .split, .split.rev{grid-template-columns:1fr; gap:36px;}
+  .split.rev .media{order:0;}
+  .compass{grid-template-columns:repeat(2,1fr);}
+  .stat-band{grid-template-columns:repeat(2,1fr);}
+  .stat-band .cell:nth-child(2){border-right:none;}
+  .gate-grid{grid-template-columns:1fr;}
+  .duo{grid-template-columns:1fr;}
+  .morph-overlay{flex-direction:column; align-items:flex-start; gap:16px;}
+  .morph-stats{flex-wrap:wrap;}
+  .refs{columns:1;}
+  section{padding:80px 0;}
+  .hero h1{font-size:clamp(40px,12vw,70px);}
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+}
+
+/* ===== HERO LOGO PLACEHOLDERS ===== */
+.hero-logos{position:absolute;top:96px;left:40px;right:40px;z-index:3;display:flex;justify-content:space-between;align-items:flex-start;pointer-events:none;}
+.hero-logo{width:110px;height:110px;object-fit:contain;display:block;}
+@media(max-width:760px){.hero-logos{top:82px;left:22px;right:22px}.hero-logo{width:76px;height:76px}}
+
+/* ===== HERO SVG LOGO PLACEHOLDERS ===== */
+.hero-logos{
+  position:absolute;
+  top:82px;
+  left:40px;
+  right:40px;
+  z-index:4;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  pointer-events:none;
+}
+.hero-logo{
+  width:110px;
+  height:110px;
+  object-fit:contain;
+  display:block;
+}
+@media(max-width:760px){
+  .hero-logos{top:112px;left:22px;right:22px;}
+  .hero-logo{width:76px;height:76px;}
+}
+
+</style>
+<style id="language-switcher-style">
+.lang-switcher{display:flex;align-items:center;gap:6px;margin-left:22px;font-family:Cairo;font-size:13pt;letter-spacing:.06em}
+.lang-switcher a{color:var(--paper-dim);text-decoration:none;border:1px solid var(--stone-line);padding:7px 9px;transition:all .2s ease;line-height:1}
+.lang-switcher a:hover,.lang-switcher a.active{color:#151009;background:var(--gold);border-color:var(--gold)}
+@media(max-width:760px){.lang-switcher{margin-left:10px;gap:4px}.lang-switcher a{padding:6px 7px}}
+</style>
+</head>
+<body>
+<header class="site-nav" id="siteNav">
+<div class="brand"><span class="mono">M</span> MILIANA — THE RAMPARTS</div>
+<nav class="links">
+<a href="#situation">Location</a>
+<a href="#histoire">History</a>
+<a href="#muraille">Ramparts</a>
+<a href="#portes">Gates</a>
+<a href="#chronologie">Chronology</a>
+<a href="#actuel">2023</a>
+<a href="#synthese">Summary</a>
+<a href="#sources">Sources</a>
+</nav>
+<div class="lang-switcher" aria-label="Language selector"><a href="index-fr.html" lang="fr">FR</a><a href="index.html" lang="ar">العربية</a><a class="active" href="index-en.html" lang="en">EN</a></div>
+</header>
+<section class="hero">
+<div class="hero-logos" aria-label="Logo placeholders">
+  <img class="hero-logo" src="logo-left.svg" alt="Left logo">
+  <img class="hero-logo" src="logo-right.svg" alt="Right logo">
+</div>
+<img alt="Vue de la muraille de Miliana" class="hero-img" src="images/image1.jpg"/>
+<div class="hero-content">
+<div class="hero-tag">People’s Democratic Republic of Algeria </br> Ministry of Culture and Arts<br/>Directorate of Culture of Aïn Defla Province</div>
+<h1>THE WALLS<br/>OF <em>MILIANA</em></h1>
+<p class="hero-sub">Historical genesis of the ramparts — from a Roman garrison on Zaccar to heritage that still stands.</p>
+</div>
+</section>
+<section id="intro">
+<div class="wrap">
+<div class="split reveal">
+<div class="text">
+<div class="eyebrow">I — Introduction </div>
+<h2 class="section-title">A historical genesis report</h2>
+<p class="lede">This site presents research and analysis devoted to a single monument: the walls of Miliana.</p>
+<div style="margin-top:28px; max-width:600px; color:var(--paper-dim);">
+<p>The aim is to identify and document the city’s ramparts and the different phases of transformation they underwent over the centuries — from their Roman foundation and colonial demolitions to the surviving remains visible today.</p>
+</div>
+</div>
+<div class="media">
+<figure>
+<img alt="Les écoles et les remparts, Miliana" class="frame-img" src="images/image2.jpg"/>
+<figcaption>The schools and ramparts — Miliana</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="situation">
+<div class="wrap">
+<div class="section-head reveal">
+<div class="eyebrow">II — Location </div>
+<h2 class="section-title">A promontory overlooking the Chélif Valley</h2>
+<p class="lede">Capital of a daïra in Aïn Defla Province, built on the Zaccar El Gherbi massif.</p>
+</div>
+<div class="split reveal">
+<div class="text">
+<div style="color:var(--paper-dim);">
+<p>Miliana lies 400 m above the Chélif plain and at an altitude of 740 m, overlooking the valley. The municipality covers 40 km² in the northeast of its province, 120 km west of Algiers, connected to the capital by National Road 4.</p>
+<p style="margin-top:16px;">It is naturally bounded by Mount Zaccar to the north and an escarpment to the south.</p>
+</div>
+<div class="compass">
+<div class="cell"><div class="dir">East</div><div class="place">Aïn Torki</div><div class="dist">9 km</div></div>
+<div class="cell"><div class="dir">West</div><div class="place">Bthn Allthl</div><div class="dist">9 km</div></div>
+<div class="cell"><div class="dir">South</div><div class="place">Khthmis-Miliana</div><div class="dist">9 km</div></div>
+<div class="cell"><div class="dir">North</div><div class="place">Mont Zaccar</div><div class="dist">provincial boundary</div></div>
+</div>
+<div class="stat-row">
+<div class="stat"><div class="num">740 m</div><div class="lab">Altitude</div></div>
+<div class="stat"><div class="num">40 km²</div><div class="lab">Area</div></div>
+<div class="stat"><div class="num">120 km</div><div class="lab">West of Algiers</div></div>
+</div>
+</div>
+<div class="media">
+<figure>
+<img alt="Aerial view of Miliana" class="frame-img" src="images/image3.jpg"/>
+<figcaption>Aerial view of Miliana</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="histoire">
+<div class="wrap">
+<div class="section-head reveal">
+<div class="eyebrow">III — History </div>
+<h2 class="section-title">From Zucchabar to Miliana</h2>
+<p class="lede">Two thousand years of successive occupations, before and during French colonization.</p>
+</div>
+<div class="split reveal">
+<div class="text">
+<div class="spine">
+<div class="era">
+<h4>Before French colonization</h4>
+<p>Former Roman colony called <strong>Zucchabar</strong>, foundthd bthtwththn 27 and 25 BC undthr Empthror Augustus. Around 375, thth Roman gthnthral Ththodosius thth Eldthr intthrvthnthd ththrth to supprthss thth rthvolt of thth Bthrbthr lthadthr Firmus.</p>
+<p>In the 5th<sup>th</sup> century, the Vandal invasion plunged the city into obscurity until its refoundation by <strong>Bologhinth Ibn Ziri thn 972</strong>. In thth following cthnturiths, Miliana camth undthr Almoravid, Almohad, Hafsid and Zianid rulth bthforth Aroudj Barbarossa brought it undthr Ottoman control in <strong>1517</strong>.</p>
+</div>
+<div class="era">
+<h4>During French colonization</h4>
+<p>After the capture of Algiers in 1830, the Moroccan Sultan Moulay Abderrahmane briefly claimed authority over Miliana. The Treaty of Desmichels (February 24, 1834) prompted Emir Abd El Kader to occupy Miliana and Médéa. He entered the city to a warm welcome in April 1835, and Miliana became the seat of his caliphate, entrusted first to Mahieddine Seghir and later to his nephew, the Caliph Ben Allel.</p>
+<p>In 1839, the French broke the treaty. Despite the occupation of Miliana in 1840 by the troops of Marshal Valée, resistance continued. Emir Abd El Kader and Ben Allel, supported by the tribes of Boumaâd and Zaccar, laid siege to the garrison, which was forced to receive reinforcements dispatched by Marshal Bugeaud.</br>
+Ben Allel died in 1843. In 1844, French troops set fire to the city in an attempt to drive out the Emir’s remaining supporters, and Abd El Kader lost Miliana for good. The city was subsequently marginalized in favor of the newly established Khemis-Miliana, a colonial settlement.
+</p>
+</div>
+</div>
+</div>
+<div class="media">
+<figure>
+<img alt="Les tribus maures du IVe siècle et les zones de la guerre de Firmus" class="frame-img" src="images/image4.jpg"/>
+<figcaption>Moorish tribes of the 4th<sup>th</sup> century and areas of the Firmus war — after Courtois, <em>The Vandals and Africa</em></figcaption>
+</figure>
+<figure style="margin-top:34px;">
+<img alt="Plan of Miliana in the late 1950s" class="frame-img" src="images/image5.jpg"/>
+<figcaption>Plan of Miliana in the late 1950s</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="muraille">
+<div class="wrap">
+<div class="section-head reveal">
+<div class="eyebrow">IV — The Ramparts </div>
+<h2 class="section-title">The Ramparts of Miliana</h2>
+<p class="lede">Roman in origin, rebuilt in the Middle Ages, redesigned by the Ottomans, then reduced by colonial urban planning.</p>
+</div>
+<div class="split rev reveal">
+<div class="text">
+<div style="color:var(--paper-dim);">
+<p>Reusing Roman remains, the Ottomans built two enclosures: one, strongly fortified, surrounded the Casbah southeast of the city; the other enclosed the eastern and northern sides. In 1849, as French military engineers laid out the city, the ramparts were moved westward to make way for the modern city.</p>
+<p style="margin-top:16px;">For centuries, this formidable enclosure played a major role in resisting enemy attacks. Built of huge dressed stones and pierced with loopholes, it dominates the Chélif Valley from a picturesque promontory. To enter the city, one had to use one of two main gates: the western gate (Oran Gate) or the eastern gate (Zaccar Gate). Today, only the southern, southeastern and southwestern sections survive; the rest was destroyed during the colonial period.</p>
+</div>
+<div class="stat-band">
+<div class="cell"><div class="num">7–8 m</div><div class="lab">Height</div></div>
+<div class="cell"><div class="num">≈3 km</div><div class="lab">Total length</div></div>
+<div class="cell"><div class="num">17</div><div class="lab">Bastions</div></div>
+<div class="cell"><div class="num">2</div><div class="lab">Ottoman enclosures</div></div>
+</div>
+</div>
+<div class="media">
+<figure>
+<img alt="Vue générale prise du Zaccar, Miliana" class="frame-img" src="images/image6.jpg"/>
+<figcaption>General view from Zaccar — Miliana</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="portes">
+<div class="wrap">
+<div class="section-head reveal">
+<div class="eyebrow">IV.2 — Gates of the Ramparts </div>
+<h2 class="section-title">Four gateways into the city</h2>
+<p class="lede">Each gate carried a role, a pilgrimage route, a memory — and for two of them, a tragic demolition.</p>
+</div>
+<div class="gate-grid reveal">
+<div class="gate-card">
+<div class="gimg-wrap"><img alt="La porte du Zaccar, Miliana" src="images/image7.jpg"/></div>
+<div class="gate-body">
+<div class="gname">Eastern Gate</div>
+<div class="galt">Zaccar Gate — built in 1854</div>
+<p>A double gate (one for entry, one for exit), located between bastions 10 and 11, aligned with today’s Emir Abd El Kader Street. In 1954, after a road accident that killed two children, the municipal council voted to remove it by 24 votes to one. A 32×25 cm bronze plaque embedded in the wall was later found: 7 mm thick, weighing 4,870 kg, engraved with the construction date. A fountain monument replaced it, partly destroyed in 1982 and replaced by a monument to the martyrs of the 1954–1962 War of Liberation.</p>
+</div>
+</div>
+<div class="gate-card">
+<div class="gimg-wrap"><img alt="La porte d'Orléansville, Miliana" src="images/image8.jpg"/></div>
+<div class="gate-body">
+<div class="gname">Western Gate</div>
+<div class="galt">Orléansville Gate — “Bab El Gherbi” — 1850</div>
+<p>Located at bastion 5, built in 1850 and destroyed in 1974 for the same reasons as the Zaccar Gate twenty years earlier. Remembered collectively as “Bab El Gherb,” it had long welcomed pilgrims of the Rekb of Beni Farh arriving by the Ben Allel road.</p>
+</div>
+</div>
+<div class="gate-card">
+<div class="gimg-wrap"><img alt="La porte de Bouton, Miliana" src="images/image9.jpg"/></div>
+<div class="gate-body">
+<div class="gname">Bouton Gate</div>
+<div class="galt">Near Aïn El Djemâa</div>
+<p>Destroyed during the colonial era, before the Zaccar Gate, it stood near Aïn El Djemâa and the boules court, opening onto Magenta Boulevard. It was used to reach Korkah, Ben Allel and Bab El Gherbi.</p>
+</div>
+</div>
+<div class="gate-card noimg">
+<div class="gimg-wrap"><div class="bastion-icon">M</div></div>
+<div class="gate-body">
+<div class="gname">Yedmer Gate</div>
+<div class="galt">On the southern rampart</div>
+<p>Less monumental than the previous gates, it led toward Yedmer, Aïn El Barkouk and Zougala. It was through this small gate that a troop from Marshal Valée’s expedition is said to have entered the city during its capture.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="chronologie">
+<div class="wrap">
+<div class="section-head reveal">
+<div class="eyebrow">IV.3 — Chronology of Transformations </div>
+<h2 class="section-title">Eight centuries of a wall that never stopped changing</h2>
+<p class="lede">Each civilization destroyed, reused or redrew the same outline. Explore the eight stages of its transformation.</p>
+</div>
+<div class="morph-wrap reveal">
+<div class="morph-frame" id="morphFrame">
+<div class="sweep" id="sweep"></div>
+<div class="morph-overlay">
+<div>
+<div class="morph-tag" id="mTag">—</div>
+<div class="morph-title" id="mTitle">—</div>
+<div class="morph-dates" id="mDates">—</div>
+</div>
+<div class="morph-stats" id="mStats"></div>
+</div>
+</div>
+<p class="morph-desc" id="mDesc"></p>
+<div class="era-progress" id="eraProgress"></div>
+<div class="era-tabs" id="eraTabs"></div>
+</div>
+</div>
+</section>
+<section id="actuel">
+<div class="wrap">
+<div class="section-head reveal">
+<div class="eyebrow">V — The Ramparts in 2023 </div>
+<h2 class="section-title">What remains</h2>
+</div>
+<div class="duo reveal">
+<img alt="Les remparts de Miliana en 2023" src="images/image13.jpg"/>
+<img alt="Les remparts de Miliana en 2023" src="images/image14.jpg"/>
+</div>
+<p class="callout reveal">Today, the wall is in an advanced state of deterioration — the last visible fragment of an enclosure that had already begun giving way to the modern city in 1849.</p>
+</div>
+</section>
+<section id="synthese">
+<div class="wrap">
+<div class="section-head reveal">
+<div class="eyebrow">VI — Summary </div>
+<h2 class="section-title">Transformations, period by period</h2>
+</div>
+<div class="reveal" style="overflow-x:auto;">
+<table class="syn-table">
+<thead><tr><th>Period</th><th>Transformation(s)</th></tr></thead>
+<tbody>
+<tr><td class="period">Roman period</td><td><ul><li>Birth of the city of Zucchabar</li><li>Construction of a defensive wall pierced by three gates</li></ul></td></tr>
+<tr><td class="period">Vandal invasion</td><td><ul><li>Destruction of the Roman city</li><li>Ramparts half demolished</li></ul></td></tr>
+<tr><td class="period">Islamic period <span style="color:var(--paper-faint); font-size:12px;">(before 1515)</span></td><td>—</td></tr>
+<tr><td class="period">Ottoman period</td><td><ul><li>Reconstruction over the remains of the Roman city</li><li>Construction of a new enclosure surrounding the city</li></ul></td></tr>
+<tr><td class="period">Colonial — 1842–1844</td><td><ul><li>Restoration of the Ottoman enclosure</li><li>Creation of a 4th<sup>th</sup> gate: the Zaccar Gate</li></ul></td></tr>
+<tr><td class="period">Colonial — 1930–1962</td><td><ul><li>Demolition of the enclosure</li><li>Creation of a wide ring boulevard</li></ul></td></tr>
+<tr><td class="period">Postcolonial period</td><td>—</td></tr>
+<tr><td class="period">Current period</td><td><ul><li>The wall is in an advanced state of deterioration</li></ul></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="conclusion">
+<div class="wrap">
+<div class="section-head reveal">
+<div class="eyebrow">VII — Conclusion</div>
+</div>
+<div class="conclusion-block reveal">
+<p>The walls of Miliana are among the <em>most important heritage treasures</em> the city possesses. To this day, they testify to the richness of a millennial history shaped by several civilizations — Roman, Islamic, Ottoman and colonial — each contributing to its foundations and shaping its architectural and urban landscape.</p>
+</div>
+</div>
+</section>
+<section id="sources">
+<div class="wrap">
+<div class="section-head reveal">
+<div class="eyebrow">VIII — Bibliographic References</div>
+</div>
+<ul class="refs reveal">
+<li>Danithl Babo, <em>Dths hommths tht dths lithux</em>, p. 206.</li>
+<li>Emmanuthllth Papot, <em>Abd El-Kadthr (1808–1883), chthf spirituthl tht militairth algérithn</em>, wthb articlth, July 2008.</li>
+<li>Mahfoud Kaddachth, <em>L'Émir Abdthlkadthr</em>, Algthr, 1974.</li>
+<li>Marcthl Emthrit, <em>L'Algérith à l'époquth d'Abdthlkadthr</em>, Paris, p. 120.</li>
+<li>Mohamthd Hadj-Sadok, <em>Miliana tht son wali Sidi Ahmthd Bthnyoucthf</em>, 1989.</li>
+<li>Mohamthd Landjthrit, <em>Miliana d'antan</em>.</li>
+<li>PPSMVSS, Miliana.</li>
+</ul>
+</div>
+</section>
+<footer>
+<div class="fmark">M</div>
+<div class="finst">People’s Democratic Republic of Algeria<br/>Ministry of Culture and Arts<br/>Directorate of Culture of the Wilaya of Aïn Defla</div>
+<div class="finst">BET HANDASSA OUA BINA </br>
+Study and Restoration of Historic Sites and Monuments</br>
+12, Rue Khelifa Boukhalfa-Alger. Tél./fax : 021633 641</br>
+E-mail : algerestauration@yahoo.fr
+</div>
+<div class="fnote">This site was designed and developed by the DZ Print team.</div>
+</footer>
+<script>
+// nav scroll state
+const nav = document.getElementById('siteNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, {passive:true});
+
+// reveal on scroll
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, {threshold:0.12});
+revealEls.forEach(el => io.observe(el));
+
+// ===== ERA MORPH DATA =====
+const eras = [
+{num:'I',tag:'Foundation',label:'Roman period',dates:'27 – 25 BC → 5th century',img:'image10',filter:'none',stats:[['Founded','25–27 BC'],['Ancient name','Zucchabar'],['Gates','3']],desc:"A Roman garrison settles on the rocky spur of Zaccar to watch over the Chélif plain. Zucchabar becomes one of the major cities of Mauretania Caesariensis and the seat of a bishopric. A defensive wall, pierced by three gates — north toward Caesarea, south toward Lemdia, west toward Oppidum Novum — surrounds the city."},
+{num:'II',tag:'Destruction',label:'Vandal invasion',dates:'5th – 6th century',img:'image10',filter:'sepia',stats:[['City','destroyed'],['Rampart','half demolished'],['Remains','Latin inscriptions']],desc:"The arrival of the Vandals in North Africa ends the Roman era. Most ancient monuments disappear; only a half-demolished rampart and a few building stones bearing Latin texts remain."},
+{num:'III',tag:'Refoundation',label:'Islamic period',dates:'972 – 1517',img:'image1',filter:'none',stats:[['Refoundation','972, Bologhine Ibn Ziri'],['Dynasties','4 successive'],['1517','Aroudj Barbarossa']],desc:"After a long period of obscurity, the city is reborn in 972 under Bologhine Ibn Ziri. It then passes under Almoravid, Almohad, Hafsid and Zianid control before Aroudj Barbarossa brings it into the Ottoman sphere in 1517."},
+{num:'IV',tag:'Two enclosures',label:'Ottoman period',dates:'1517 – 1830',img:'image15',filter:'cool',stats:[['Enclosures','2'],['Casbah','southeast of the city'],['Status','first caïdat in the region']],desc:"The Ottomans reuse Roman remains to build two enclosures: one fortified enclosure surrounds the Casbah to the southeast; the other encloses the eastern and northern sides of the city, then the region’s first caïdat attached to the Titteri beylik."},
+{num:'V',tag:'Caliphate seat',label:'Caliphate of Emir Abd El Kader',dates:'1835 – 1840',img:'image5',filter:'none',stats:[['Entry','April 1835'],['Caliph','Mahieddine Seghir, then Ben Allel'],['French occupation','1840']],desc:"After the Desmichels Treaty (24 February 1834), Emir Abd El Kader makes Miliana the seat of his caliphate and is warmly welcomed by the inhabitants. The French break the peace in 1839; the city is occupied in 1840 despite determined resistance led by Ben Allel and the Zaccar tribes."},
+{num:'VI',tag:'Urban alignment',label:'Colonial restructuring',dates:'1842 – 1844',img:'image11',filter:'none',stats:[['Gate created','Zaccar Gate'],['Fountains','9 public fountains'],['Ottoman enclosure','restored']],desc:"French military engineers lay out the new city: tree-lined boulevards, new streets, the Zaccar Gate and restoration of the Ottoman enclosure, while fountains and public buildings — town hall and schools — appear."},
+{num:'VII',tag:'Ring boulevard',label:'Extensions & demolitions',dates:'1849 – 1962',img:'image12',filter:'none',stats:[['1849','ramparts moved west'],['1881','civil / military city'],['1930–1962','northern enclosure demolished']],desc:"In 1849, part of the ramparts is moved west to make way for the modern city. The city then expands west (1849–1930) and north (1930–1962), where the enclosure is demolished for a wide ring boulevard."},
+{num:'VIII',tag:'Current state',label:'Miliana today',dates:'1962 – 2023',img:'image13',filter:'none',stats:[['Survives','south / southeast / southwest enclosure'],['Original height','7 to 8 m'],['Original length','≈ 3 km']],desc:"The city continues its linear growth, constrained by Zaccar to the north and the escarpment to the south. Of the original ramparts, only the southern enclosure survives, in an advanced state of deterioration — the last visible witness to two thousand years of history."}
+];
+
+const IMAGES = {"image1": "images/image1.jpg", "image2": "images/image2.jpg", "image3": "images/image3.jpg", "image4": "images/image4.jpg", "image5": "images/image5.jpg", "image6": "images/image6.jpg", "image7": "images/image7.jpg", "image8": "images/image8.jpg", "image9": "images/image9.jpg", "image10": "images/image10.jpg", "image11": "images/image11.jpg", "image12": "images/image12.jpg", "image13": "images/image13.jpg", "image14": "images/image14.jpg","image15": "images/image15.jpg"};
+
+const frame = document.getElementById('morphFrame');
+const sweep = document.getElementById('sweep');
+const tabsEl = document.getElementById('eraTabs');
+const progEl = document.getElementById('eraProgress');
+const mTag = document.getElementById('mTag');
+const mTitle = document.getElementById('mTitle');
+const mDates = document.getElementById('mDates');
+const mStats = document.getElementById('mStats');
+const mDesc = document.getElementById('mDesc');
+
+let layers = [];
+let current = -1;
+
+function filterCss(f){
+  if(f==='sepia') return 'sepia(0.55) saturate(0.7) brightness(0.8) contrast(1.05)';
+  if(f==='cool') return 'saturate(0.6) hue-rotate(-8deg) brightness(0.88)';
+  return 'saturate(0.92) brightness(0.94)';
+}
+
+function buildTabs(){
+  eras.forEach((e,i)=>{
+    const b = document.createElement('button');
+    b.className = 'era-tab';
+    b.textContent = e.num + ' · ' + e.label;
+    b.addEventListener('click', ()=> goTo(i));
+    tabsEl.appendChild(b);
+    const bar = document.createElement('i');
+    progEl.appendChild(bar);
+  });
+}
+
+function renderStats(stats){
+  mStats.innerHTML = '';
+  stats.forEach(([k,v])=>{
+    const d = document.createElement('div');
+    d.className='s';
+    d.innerHTML = '<div class="k">'+k+'</div><div class="v">'+v+'</div>';
+    mStats.appendChild(d);
+  });
+}
+
+function goTo(i){
+  if(i===current) return;
+  const e = eras[i];
+
+  const img = document.createElement('img');
+  img.src = IMAGES[e.img];
+  img.alt = e.label;
+  const layer = document.createElement('div');
+  layer.className = 'layer';
+  layer.style.filter = filterCss(e.filter);
+  layer.appendChild(img);
+  frame.insertBefore(layer, frame.firstChild);
+  layers.push(layer);
+
+  requestAnimationFrame(()=>{
+    layer.classList.add('active');
+    sweep.classList.remove('go'); void sweep.offsetWidth; sweep.classList.add('go');
+  });
+
+  setTimeout(()=>{
+    layers.forEach(l => { if(l!==layer){ l.remove(); } });
+    layers = [layer];
+  }, 1250);
+
+  mTag.textContent = e.num + ' — ' + e.tag;
+  mTitle.textContent = e.label;
+  mDates.textContent = e.dates;
+  mDesc.textContent = e.desc;
+  renderStats(e.stats);
+
+  [...tabsEl.children].forEach((b,idx)=> b.classList.toggle('active', idx===i));
+  [...progEl.children].forEach((bar,idx)=>{
+    bar.classList.toggle('done', idx<i);
+    bar.classList.toggle('now', idx===i);
+  });
+
+  current = i;
+}
+
+buildTabs();
+goTo(0);
+
+let autoplay = setInterval(()=>{
+  goTo((current+1) % eras.length);
+}, 6500);
+tabsEl.addEventListener('click', ()=>{ clearInterval(autoplay); });
+document.getElementById('morphFrame').addEventListener('click', ()=>{ clearInterval(autoplay); goTo((current+1) % eras.length); });
+</script>
+<script id="language-switcher-script">
+(function(){
+  document.querySelectorAll('.lang-switcher a').forEach(function(a){
+    a.addEventListener('click',function(){
+      try{sessionStorage.setItem('langScrollY',String(window.scrollY))}catch(e){}
+    });
+  });
+  try{
+    var y=sessionStorage.getItem('langScrollY');
+    if(y!==null){
+      sessionStorage.removeItem('langScrollY');
+      window.addEventListener('load',function(){window.scrollTo(0,Number(y));},{once:true});
+    }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>

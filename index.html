@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>تاريخ مدينة مليانة</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&amp;family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;1,7..72,400&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#15130E;
+  --bg-alt:#1D1912;
+  --panel:#251F16;
+  --stone:#4E4536;
+  --stone-line:#5A5039;
+  --stone-light:#A99878;
+  --gold:#C9963E;
+  --gold-dim:#8C6E38;
+  --verdigris:#6C8C7A;
+  --paper:#ECE2CB;
+  --paper-dim:#B6AA8D;
+  --paper-faint:#84795F;
+  --shadow: 0 30px 60px -20px rgba(0,0,0,0.6);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--paper);
+  font-family:Cairo;
+  font-size:17px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:var(--gold); color:#1a1710;}
+a{color:inherit;}
+img{display:block; max-width:100%;}
+
+.wrap{max-width:1180px; margin:0 auto; padding:0 40px;}
+.prose{max-width:700px;}
+
+h1,h2,h3,h4{font-family:Cairo; font-weight:600; letter-spacing:-0.01em; color:var(--paper);}
+
+.eyebrow{
+  font-family:Cairo;
+  font-size:12.5pt;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--gold);
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:22px;
+}
+.eyebrow::before{
+  content:"";
+  width:26px; height:1px; background:var(--gold-dim);
+}
+.eyebrow .ar{
+  font-family:'Fraunces', serif;
+  color:var(--stone-light);
+  font-weight:400;
+  letter-spacing:0;
+  text-transform:none;
+  font-size:13px;
+}
+
+/* ===== NAV ===== */
+header.site-nav{
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 40px;
+  background:linear-gradient(to bottom, rgba(21,19,14,0.92), rgba(21,19,14,0));
+  backdrop-filter: blur(2px);
+  font-family:Cairo;
+  font-size:13pt;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  transition: background .3s ease, box-shadow .3s ease;
+}
+header.site-nav.scrolled{
+  background:rgba(21,19,14,0.88);
+  box-shadow:0 1px 0 var(--stone-line);
+}
+.brand{display:flex; align-items:center; gap:10px; font-family:Cairo; font-size:15pt; text-transform:none; letter-spacing:0; color:var(--paper);}
+.brand .mono{
+  width:30px; height:30px; border:1px solid var(--gold-dim); border-radius:2px;
+  display:flex; align-items:center; justify-content:center; color:var(--gold);
+  font-family:'Cairo; font-size:16px;
+  clip-path: polygon(15% 0, 85% 0, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0 85%, 0 15%);
+}
+nav.links{display:flex; gap:26px;}
+nav.links a{color:var(--paper-dim); text-decoration:none; transition:color .2s;}
+nav.links a:hover{color:var(--gold);}
+.nav-toggle{display:none;}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;
+  height:100vh; min-height:640px;
+  display:flex; align-items:flex-end;
+  overflow:hidden;
+}
+.hero-img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:saturate(0.85) brightness(0.62);
+  animation: hero-in 2.4s ease-out both;}
+@keyframes hero-in{from{transform:scale(1.08); opacity:0;} to{transform:scale(1); opacity:1;}}
+.hero::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(15,13,9,0.96) 5%, rgba(15,13,9,0.35) 55%, rgba(15,13,9,0.55) 100%);
+}
+.hero-content{position:relative; z-index:2; padding:0 40px 76px; width:100%; height:70%;}
+
+.hero-tag{
+position:relative;
+  font-family:Cairo; font-size:13pt; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--stone-light); max-width:640px; line-height:1.9; margin-bottom:30px;
+  animation: fade-up 1s ease .3s both;
+}
+.hero h1{
+  font-size:clamp(48px, 8.4vw, 108px);
+  line-height:1.3;
+  letter-spacing:-0.02em;
+  color:var(--paper);
+  animation: fade-up 1.1s ease .45s both;
+}
+.hero h1 em{color:var(--gold); font-style: normal; font-weight:500;}
+.hero-sub{
+  margin-top:24px; max-width:560px; font-family:Cairo;  font-weight:400;
+  font-size:20px; color:var(--paper-dim);
+  animation: fade-up 1.1s ease .6s both;
+}
+@keyframes fade-up{from{opacity:0; transform:translateY(22px);} to{opacity:1; transform:translateY(0);}}
+@keyframes cue{0%{top:-100%;} 60%{top:100%;} 100%{top:100%;}}
+
+/* ===== SECTIONS ===== */
+section{padding:120px 0; position:relative; border-bottom:1px solid var(--stone-line);}
+section:last-of-type{border-bottom:none;}
+.section-head{margin-bottom:56px;}
+h2.section-title{font-size:clamp(30px,4vw,46px); line-height:1.06; max-width:820px;}
+.lede{font-family:Cairo; font-weight:400; font-size:21px; color:var(--paper-dim); max-width:640px; margin-top:18px;}
+
+.reveal{opacity:0; transform:translateY(28px); transition:opacity .9s ease, transform .9s ease;}
+.reveal.in{opacity:1; transform:translateY(0);}
+
+figure{margin:0;}
+figcaption{
+  font-family:Cairo; font-size:11.5pt; letter-spacing:0.06em; color:var(--paper-faint);
+  margin-top:14px; padding-left:16px; border-left:1px solid var(--gold-dim);
+}
+.frame-img{width:100%; border-radius:2px; box-shadow:var(--shadow);}
+
+/* ===== INTRO layout ===== */
+.split{display:grid; grid-template-columns:1.05fr 0.95fr; gap:64px; align-items:start;}
+.split.rev{grid-template-columns:0.95fr 1.05fr;}
+.split.rev .media{order:2;}
+
+/* ===== SITUATION ===== */
+.compass{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--stone-line);
+  border:1px solid var(--stone-line); margin-top:44px;
+}
+.compass .cell{background:var(--bg-alt); padding:26px 22px;}
+.compass .dir{font-family:Cairo; font-size:13pt; letter-spacing:0.14em; color:var(--gold); text-transform:uppercase; margin-bottom:10px;}
+.compass .place{font-family:Cairo; font-size:16pt; color:var(--paper);}
+.compass .dist{font-family:Cairo; font-size:12pt; color:var(--paper-faint); margin-top:6px;}
+.stat-row{display:flex; flex-wrap:wrap; gap:38px; margin-top:46px;}
+.stat{min-width:120px;}
+.stat .num{font-family:Cairo; font-size:17pt; color:var(--gold); font-weight:500; line-height:1;}
+.stat .lab{font-family:Cairo; font-size:10.5pt; letter-spacing:0.1em; text-transform:uppercase; color:var(--paper-faint); margin-top:8px;}
+
+/* ===== HISTOIRE timeline ===== */
+.spine{position:relative; padding-left:34px; border-left:1px solid var(--stone-line); margin-top:12px;}
+.spine .era{position:relative; padding-bottom:52px;}
+.spine .era:last-child{padding-bottom:0;}
+.spine .era::before{
+  content:""; position:absolute; left:-39px; top:6px; width:9px; height:9px; border-radius:50%;
+  background:var(--bg); border:2px solid var(--gold);
+}
+.spine .era h4{font-family:Cairo; font-size:13pt; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:10px;}
+.spine .era p{color:var(--paper-dim); max-width:640px;}
+.spine .era p + p{margin-top:12px;}
+
+/* ===== MURAILLE présentation ===== */
+.stat-band{
+  display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--stone-line); margin:50px 0 10px;
+}
+.stat-band .cell{padding:30px 24px; border-right:1px solid var(--stone-line);}
+.stat-band .cell:last-child{border-left:none;}
+.stat-band .num{font-family:Cairo; font-size:25pt; color:var(--gold); font-weight:500;}
+.stat-band .lab{font-family:Cairo; font-size:10pt; letter-spacing:0.08em; color:var(--paper-faint); text-transform:uppercase; margin-top:8px; line-height:1.5;}
+
+/* ===== PORTES gallery ===== */
+.gate-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:2px; background:var(--stone-line); margin-top:50px; border:1px solid var(--stone-line);}
+.gate-card{background:var(--bg-alt); overflow:hidden; position:relative;}
+.gate-card .gimg-wrap{position:relative; aspect-ratio:4/3; overflow:hidden; background:var(--panel);}
+.gate-card img{width:100%; height:100%; object-fit:cover; filter:saturate(0.8) brightness(0.85); transition:transform .8s ease, filter .8s ease;}
+.gate-card:hover img{transform:scale(1.06); filter:saturate(1) brightness(0.95);}
+.gate-card.noimg .gimg-wrap{display:flex; align-items:center; justify-content:center;}
+.bastion-icon{width:64px; height:64px; border:1px solid var(--gold-dim); clip-path:polygon(50% 0,100% 35%,82% 100%,18% 100%,0 35%); display:flex; align-items:center; justify-content:center; color:var(--gold); font-family:'Fraunces',serif; }
+.gate-body{padding:28px 30px 34px;}
+.gate-body .gname{font-family:Cairo; font-size:14pt; color:var(--paper); margin-bottom:4px;}
+.gate-body .galt{font-family:Cairo; font-size:12pt; color:var(--gold); letter-spacing:0.06em; margin-bottom:14px; text-transform:uppercase;}
+.gate-body p{color:var(--paper-dim); font-size:15.5px;}
+
+/* ===== ERA MORPH — signature element ===== */
+.morph-wrap{margin-top:54px;}
+.morph-frame{
+  position:relative;
+  aspect-ratio:16/9;
+  clip-path: polygon(0% 2%, 3% 0%, 97% 0%, 100% 3%, 100% 97%, 97% 100%, 3% 100%, 0% 98%, 0% 60%, 1.4% 58%, 0% 55%, 0% 45%, 1.2% 43%, 0% 41%);
+  background:#000;
+  box-shadow:var(--shadow);
+  border:1px solid var(--stone-line);
+}
+.morph-frame .layer{position:absolute; inset:0;}
+.morph-frame img{width:100%; height:100%; object-fit:cover;}
+.morph-frame .layer{opacity:0; transition:opacity 1.1s ease, filter 1.1s ease, transform 1.4s ease; filter:blur(6px) saturate(0.7); transform:scale(1.04);}
+.morph-frame .layer.active{opacity:1; filter:blur(0) saturate(0.92) brightness(0.94); transform:scale(1);}
+.morph-frame .sweep{
+  position:absolute; inset:0; pointer-events:none; opacity:0;
+  background:linear-gradient(100deg, transparent 40%, rgba(201,150,62,0.55) 50%, transparent 60%);
+  background-size:300% 100%; background-position:120% 0;
+}
+.morph-frame .sweep.go{opacity:1; transition:background-position 1s ease, opacity .3s ease .8s; background-position:-40% 0;}
+.morph-frame::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(to top, rgba(10,9,6,0.85) 0%, rgba(10,9,6,0.05) 38%, rgba(10,9,6,0.25) 100%);
+}
+.morph-overlay{position:absolute; left:0; right:0; bottom:0; z-index:2; padding:30px 34px; display:flex; justify-content:space-between; align-items:flex-end; gap:30px;}
+.morph-tag{font-family:Cairo; font-size:14pt; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); margin-bottom:8px;}
+.morph-title{font-family:Cairo; font-size:clamp(24pt,3vw,34pt); color:var(--paper);}
+.morph-dates{font-family:Cairo; font-size:12pt; color:var(--paper-dim); margin-top:6px;}
+.morph-stats{display:flex; gap:26px; text-align:left;}
+.morph-stats .s{min-width:110px;}
+.morph-stats .s .k{font-family:Cairo; font-size:14pt; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold-dim);}
+.morph-stats .s .v{font-family:Cairo; font-size:15pt; color:var(--paper); margin-top:4px;}
+
+.morph-desc{max-width:700px; margin-top:26px; color:var(--paper-dim); min-height:96px;}
+
+.era-tabs{display:flex; flex-wrap:wrap; gap:10px; margin-top:30px;}
+.era-tab{
+  font-family:Cairo; font-size:12pt; letter-spacing:0.05em;
+  background:none; border:1px solid var(--stone-line); color:var(--paper-faint);
+  padding:10px 16px; cursor:pointer; clip-path:polygon(8% 0,100% 0,100% 70%,92% 100%,0 100%,0 30%);
+  transition:all .25s ease; text-transform:uppercase;
+}
+.era-tab:hover{color:var(--paper); border-color:var(--stone-light);}
+.era-tab.active{color:#151009; background:var(--gold); border-color:var(--gold);}
+
+.era-progress{display:flex; gap:6px; margin-top:18px;}
+.era-progress i{flex:1; height:2px; background:var(--stone-line); position:relative; overflow:hidden;}
+.era-progress i.done{background:var(--gold-dim);}
+.era-progress i.now::after{content:""; position:absolute; inset:0; background:var(--gold);}
+
+/* ===== 2023 gallery ===== */
+.duo{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:48px;}
+.duo img{width:100%; height:100%; object-fit:cover; aspect-ratio:4/3; box-shadow:var(--shadow);}
+.callout{
+  margin-top:44px; border-left:2px solid var(--gold); padding:6px 0 6px 26px;
+  font-family:Cairo; font-size:13pt; color:var(--paper-dim); max-width:640px;
+}
+
+/* ===== SYNTHESE table ===== */
+.syn-table{width:100%; border-collapse:collapse; margin-top:40px; font-size:15px;}
+.syn-table th{
+  text-align:left; font-family:Cairo; font-size:13pt; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--gold); padding:14px 20px 14px 0; border-bottom:1px solid var(--stone-line);
+}
+.syn-table td{padding:20px 20px 20px 0; border-bottom:1px solid var(--stone-line); vertical-align:top; color:var(--paper-dim);}
+.syn-table td.period{color:var(--paper); font-family:Cairo; font-size:16.5pt; white-space:nowrap; padding-right:30px;}
+.syn-table ul{padding-left:18px;}
+.syn-table li{margin-bottom:4px;}
+
+/* ===== CONCLUSION ===== */
+.conclusion-block{max-width:740px;}
+.conclusion-block p{font-size:16pt; font-family:Cairo; font-weight:400; line-height:1.65; color:var(--paper-dim);}
+.conclusion-block p em{color:var(--gold); font-style:normal; }
+
+/* ===== REFS ===== */
+.refs{margin-top:40px; columns:2; column-gap:60px; max-width:900px;}
+.refs li{list-style:none; font-family:Cairo; font-size:12.5pt; text-align:right; color:var(--paper-faint); margin-bottom:16px; padding-left:18px; position:relative; break-inside:avoid;}
+.refs li::before{content:"—"; position:relative; padding-left:10px; color:var(--gold-dim);}
+
+footer{padding:70px 0 50px; text-align:center;}
+footer .fmark{width:38px; height:38px; margin:0 auto 22px; border:1px solid var(--gold-dim); clip-path:polygon(15% 0, 85% 0, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0 85%, 0 15%); display:flex; align-items:center; justify-content:center; color:var(--gold); font-family:'Fraunces', serif;}
+footer .finst{font-family:Cairo; font-size:11pt; letter-spacing:0.08em; text-transform:uppercase; color:var(--paper-faint); line-height:2;}
+footer .fnote{margin-top:22pt; font-family:Cairo; color:var(--stone-light); font-size:14pt;}
+
+@media (max-width:920px){
+  .wrap{padding:0 22px;}
+  nav.links{display:none;}
+  .split, .split.rev{grid-template-columns:1fr; gap:36px;}
+  .split.rev .media{order:0;}
+  .compass{grid-template-columns:repeat(2,1fr);}
+  .stat-band{grid-template-columns:repeat(2,1fr);}
+  .stat-band .cell:nth-child(2){border-right:none;}
+  .gate-grid{grid-template-columns:1fr;}
+  .duo{grid-template-columns:1fr;}
+  .morph-overlay{flex-direction:column; align-items:flex-start; gap:16px;}
+  .morph-stats{flex-wrap:wrap;}
+  .refs{columns:1;}
+  section{padding:80px 0;}
+  .hero h1{font-size:clamp(40px,12vw,70px);}
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+}
+
+
+
+</style>
+<style id="arabic-rtl-style">
+body{font-family:cairo;}
+.eyebrow::before{display:none}
+.eyebrow::after{content:"";width:26px;height:1px;background:var(--gold-dim)}
+nav.links{direction:rtl}
+.hero-content{text-align:right}
+.hero-sub,.hero-tag{margin-right:0}
+.scroll-cue{left:auto;right:40px;flex-direction:row-reverse}
+.split.rev .media{order:0}
+.spine{padding-left:0;padding-right:34px;border-left:none;border-right:1px solid var(--stone-line)}
+.spine .era::before{left:auto;right:-39px}
+.gate-body{text-align:right}
+.callout{border-left:none;border-right:2px solid var(--gold);padding:6px 26px 6px 0}
+.syn-table th,.syn-table td{text-align:right;padding-right:0;padding-left:20px}
+.syn-table ul{padding-left:0;padding-right:18px}
+.morph-overlay{text-align:right}
+.morph-stats{text-align:right}
+figcaption{padding-left:0;padding-right:16px;border-left:none;border-right:1px solid var(--gold-dim)}
+footer{text-align:center}
+
+
+
+
+/* ===== HERO LOGOS ===== */
+.hero-logos{
+  position:absolute;
+  top:96px;
+  left:40px;
+  right:40px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+
+  z-index:3;
+  pointer-events:none;
+}
+
+.hero-logo{
+  width:110px;
+  height:110px;
+  object-fit:contain;
+  display:block;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:760px){
+
+  .hero-logos{
+    top:82px;
+    left:22px;
+    right:22px;
+  }
+
+  .hero-logo{
+    width:76px;
+    height:76px;
+  }
+
+  /* Move only the hero content down on small screens */
+  .hero-content{
+    padding-top:110px;
+  }
+}
+
+
+
+
+</style>
+<style id="language-switcher-style">
+.lang-switcher{display:flex;align-items:center;gap:6px;margin-left:22px;font-family:Cairo;font-size:13pt;letter-spacing:.06em}
+.lang-switcher a{color:var(--paper-dim);text-decoration:none;border:1px solid var(--stone-line);padding:7px 9px;transition:all .2s ease;line-height:1}
+.lang-switcher a:hover,.lang-switcher a.active{color:#151009;background:var(--gold);border-color:var(--gold)}
+</style>
+</head>
+<body>
+<header class="site-nav" id="siteNav">
+<div class="brand"><span class="mono">M</span> مدينة مليانة</div>
+<nav class="links">
+<a href="#situation">الموقع</a>
+<a href="#histoire">التاريخ</a>
+<a href="#muraille">السور</a>
+<a href="#portes">الأبواب</a>
+<a href="#chronologie">التحولات</a>
+<a href="#actuel">2023</a>
+<a href="#synthese">الخلاصة</a>
+<a href="#sources">المصادر</a>
+</nav><div class="lang-switcher" aria-label="Language selector">
+<a href="index-fr.html" lang="fr">FR</a>
+<a href="index.html" lang="ar" class="active">العربية</a>
+<a href="index-en.html" lang="en">EN</a>
+</div>
+</header>
+<section class="hero">
+<div class="hero-logos" aria-label="Logo placeholders">
+  <img class="hero-logo" src="logo-left.svg" alt="Left logo">
+  <img class="hero-logo" src="logo-right.svg" alt="Right logo">
+</div>
+<img alt="Vue de la muraille de Miliana" class="hero-img" src="images/image1.jpg"/>
+<div class="hero-content">
+<div class="hero-tag">الجمهورية الجزائرية الديمقراطية الشعبية <br/> وزارة الثقافة والفنون  - مديرية الثقافة لولاية عين الدفلى</div>
+<h1>مدينة <em>مليانة</em></h1>
+<p class="hero-sub">النشأة التاريخية للأسوار — من حامية رومانية على زكار إلى تراث لا يزال صامدًا.</p>
+</br>
+
+</div>
+
+</section>
+<section id="intro">
+<div class="wrap">
+<div class="split reveal">
+<div class="text">
+<div class="eyebrow">I — المقدمة</div>
+<h2 class="section-title">دراسة في النشأة التاريخية</h2>
+<p class="lede">يقدم هذا الموقع عملًا من الجمع والتحليل مخصصًا لمعْلم واحد: أسوار مليانة.</p>
+<div style="margin-top:28px; max-width:600px; color:var(--paper-dim);">
+<p>يهدف هذا العمل إلى التعريف بأسوار المدينة وتوثيق مراحل التحول المختلفة التي مرت بها عبر القرون — من تأسيسها الروماني إلى عمليات الهدم خلال الفترة الاستعمارية، وصولًا إلى حالتها كأطلال قائمة اليوم.</p>
+</div>
+</div>
+<div class="media">
+<figure>
+<img alt="Les écoles et les remparts, Miliana" class="frame-img" src="images/image2.jpg"/>
+<figcaption>المدارس والأسوار — مليانة</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="situation">
+<div class="wrap">
+<div class="section-head reveal">
+<div class="eyebrow">II — الموقع</div>
+<h2 class="section-title">نتوء جبلي يطل على وادي الشلف</h2>
+<p class="lede">مقر دائرة من ولاية عين الدفلى، شُيدت على كتلة زكار الغربي.</p>
+</div>
+<div class="split reveal">
+<div class="text">
+<div style="color:var(--paper-dim);">
+<p>تقع مليانة على ارتفاع 400 م فوق سهل الشلف وعلى علو 740 م، مشرفة على الوادي. وتمتد البلدية على مساحة 40 كم² في شمال شرق الولاية، وعلى بعد 120 كم غرب الجزائر العاصمة، وترتبط بها عبر الطريق الوطني رقم 4.</p>
+<p style="margin-top:16px;">يحدها طبيعيًا جبل زكار شمالًا ومنحدر صخري جنوبًا.</p>
+</div>
+<div class="compass">
+<div class="cell"><div class="dir">شرق</div><div class="place">عين التركي</div><div class="dist">9 كلم</div></div>
+<div class="cell"><div class="dir">غرب</div><div class="place">بن علال</div><div class="dist">9 كلم</div></div>
+<div class="cell"><div class="dir">جنوب</div><div class="place">خميس مليانة</div><div class="dist">9 كلم</div></div>
+<div class="cell"><div class="dir">شمال</div><div class="place">جبل زكار</div><div class="dist">حدود الولاية</div></div>
+</div>
+<div class="stat-row">
+<div class="stat"><div class="num">740 متر</div><div class="lab">الارتفاع</div></div>
+<div class="stat"><div class="num">40 كم²</div><div class="lab">المساحة</div></div>
+<div class="stat"><div class="num">120 كم</div><div class="lab">غرب الجزائر العاصمة</div></div>
+</div>
+</div>
+<div class="media">
+<figure>
+<img alt="منظر جوي لمدينة مليانة" class="frame-img" src="images/image3.jpg"/>
+<figcaption>منظر جوي لمدينة مليانة</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="histoire">
+<div class="wrap">
+<div class="section-head reveal">
+<div class="eyebrow">III — التاريخ</div>
+<h2 class="section-title">من زوكابار إلى مليانة</h2>
+<p class="lede">ألفا عام من التعاقب الحضاري، قبل وأثناء الاستعمار الفرنسي.</p>
+</div>
+<div class="split reveal">
+<div class="text">
+<div class="spine">
+<div class="era">
+<h4>قبل الاستعمار الفرنسي</h4>
+<p>مستعمرة رومانية قديمة عُرفت باسم <strong>Zucchabar</strong>, تأسست بين 27 و25 قبل الميلاد في عهد الإمبراطور أغسطس. حوالي سنة 375، تدخل القائد الروماني ثيودوسيوس الأكبر لقمع ثورة الزعيم الأمازيغي فيرموس.</p>
+<p>في القرن الخامس الميلادي، أدّى غزو الوندال إلى إدخال المدينة في طيّ النسيان، إلى أن أعاد بولغين بن زيري تأسيسها سنة 972. وشهدت القرون التالية انتقال مليانة تحت حكم المرابطين، ثم الموحدين، ثم الحفصيين، فالزيانيين، قبل أن يُدخلها عروج بربروس تحت الحكم العثماني سنة 1517.</p>
+</div>
+<div class="era">
+<h4>أثناء الاستعمار الفرنسي</h4>
+<p>بعد احتلال الجزائر العاصمة سنة 1830، طالب السلطان المغربي مولاي عبد الرحمن لفترة من الزمن بالسيادة على مليانة. وقد دفعت معاهدة ديميشيل الموقعة في 24 فيفري 1834 الأمير عبد القادر إلى احتلال مليانة والمدية، حيث دخل المدينة في أفريل 1835 وسط استقبال حار من أهلها. وأصبحت مليانة مقرًا لخلافته، التي أُسندت أولًا إلى محيي الدين الصغير، ثم إلى ابن أخيه الخليفة بن علال</p>
+<p>في سنة 1839، نقض الفرنسيون المعاهدة. وعلى الرغم من احتلال مليانة سنة 1840 من قِبل قوات المارشال فاليه، استمرت المقاومة؛ إذ قام الأمير عبد القادر وبن علال، بدعم من قبائل بومعاد وزكار، بمحاصرة الحامية الفرنسية، التي اضطرت إلى استقبال تعزيزات أرسلها المارشال بيجو.
+
+استُشهد بن علال سنة 1843، وفي سنة 1844 أحرقت القوات الفرنسية المدينة لطرد آخر أنصار الأمير عبد القادر، الذي فقد مليانة إلى الأبد. وبعد ذلك، تم تهميش المدينة لصالح خميس مليانة الجديدة، التي أُنشئت في إطار المشروع الاستعماري.
+</p>
+</div>
+</div>
+</div>
+<div class="media">
+<figure>
+<img alt="Les tribus maures du IVe siècle et les zones de la guerre de Firmus" class="frame-img" src="images/image4.jpg"/>
+<figcaption>Les tribus maures du IV<sup>e</sup> siècle et les zones de la guerre de Firmus — d'après Courtois, <em>الوندال وإفريقيا</em></figcaption>
+</figure>
+<figure style="margin-top:34px;">
+<img alt="مخطط مليانة في نهاية خمسينيات القرن العشرين" class="frame-img" src="images/image5.jpg"/>
+<figcaption>مخطط مليانة في نهاية خمسينيات القرن العشرين</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="muraille">
+<div class="wrap">
+<div class="section-head reveal">
+<div class="eyebrow">IV — السور</div>
+<h2 class="section-title">أسوار مليانة</h2>
+<p class="lede">ذات أصل روماني، أعيد بناؤها في العصور الوسطى، وأعاد العثمانيون رسمها، ثم قلصها العمران الاستعماري.</p>
+</div>
+<div class="split rev reveal">
+<div class="text">
+<div style="color:var(--paper-dim);">
+<p>أعاد العثمانيون استعمال البقايا الرومانية وشيدوا سورين: أحدهما محصن جيدًا يحيط بالقصبة جنوب شرق المدينة، والآخر يطوق الجهتين الشرقية والشمالية. وفي سنة 1849، أثناء تخطيط المدينة من قبل الهندسة العسكرية الفرنسية، نُقلت الأسوار نحو الغرب لإقامة المدينة الحديثة.</p>
+<p style="margin-top:16px;">على مدى قرون، لعب هذا السور المنيع دورًا رئيسيًا في مقاومة هجمات الأعداء. شُيد من حجارة ضخمة منحوتة ومزود بفتحات للرمي، ويشرف من نتوء جبلي خلاب على وادي الشلف. وكان الدخول إلى المدينة يتم عبر إحدى البوابتين الرئيسيتين: الباب الغربي (باب وهران) أو الباب الشرقي (باب زكار). واليوم لم يبقَ سوى السور الجنوبي والجنوب الشرقي والجنوب الغربي، بينما دُمر الباقي خلال الفترة الاستعمارية.</p>
+</div>
+<div class="stat-band">
+<div class="cell"><div class="lab">الارتفاع</div><div class="num">770 متر</div></div>
+<div class="cell"><div class="lab">الطول الإجمالي</div><div class="num">≈3 كلم</div></div>
+<div class="cell"><div class="lab">الأبراج</div><div class="num">17</div></div>
+<div class="cell"><div class="lab">الأسوار العثمانية</div><div class="num">2</div></div>
+</div>
+</div>
+<div class="media">
+<figure>
+<img alt="Vue générale prise du Zaccar, Miliana" class="frame-img" src="images/image6.jpg"/>
+<figcaption>منظر عام من زكار — مليانة</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="portes">
+<div class="wrap">
+<div class="section-head reveal">
+<div class="eyebrow">IV.2 — أبواب المدينة </div>
+<h2 class="section-title">أربع بوابات نحو المدينة</h2>
+<p class="lede">كانت لكل بوابة وظيفة وطريق للحجاج وذاكرة خاصة — وبالنسبة إلى اثنتين منها، نهاية مأساوية بالهدم.</p>
+</div>
+<div class="gate-grid reveal">
+<div class="gate-card">
+<div class="gimg-wrap"><img alt="La porte du Zaccar, Miliana" src="images/image7.jpg"/></div>
+<div class="gate-body">
+<div class="gname">الباب الشرقي</div>
+<div class="galt">باب زكار — شُيد سنة 1854</div>
+<p>بوابة مزدوجة (واحدة للدخول وأخرى للخروج)، تقع بين المعقلين رقم 10 و11، على امتداد شارع الأمير عبد القادر الحالي. في سنة 1954، وبعد حادث مرور أودى بحياة طفلين، صوّت المجلس البلدي لصالح إزالتها بأغلبية 24 صوتًا مقابل صوت واحد. وقد عُثر على لوحة برونزية بمقاس 32×25 سم، كانت مثبتة داخل الجدار، بسماكة 7 مم ووزن 4870 كغ، ومنقوش عليها تاريخ بنائها. وقد أُقيم مكانها نصب مائي، تعرّض للتدمير جزئيًا سنة 1982، ثم استُبدل بنصب تذكاري لشهداء حرب التحرير 1954–1962.</p>
+</div>
+</div>
+<div class="gate-card">
+<div class="gimg-wrap"><img alt="La porte d'Orléansville, Miliana" src="images/image8.jpg"/></div>
+<div class="gate-body">
+<div class="gname">الباب الغربي</div>
+<div class="galt">باب أورليانزفيل — «باب الغربي» — 1850</div>
+<p>تقع على مستوى المعقل رقم 5، شُيّدت سنة 1850 وهُدمت سنة 1974، للأسباب نفسها التي أدّت إلى هدم باب زكار قبل عشرين عامًا. وظلّت راسخة في الذاكرة الجماعية باسم «باب الغرب»، وكانت منذ زمن بعيد تستقبل وصول حجاج ركب بني فرح، القادمين عبر طريق بن علال.</p>
+</div>
+</div>
+<div class="gate-card">
+<div class="gimg-wrap"><img alt="La porte de Bouton, Miliana" src="images/image9.jpg"/></div>
+<div class="gate-body">
+<div class="gname">باب بوتون</div>
+<div class="galt">قرب عين الجمعة</div>
+<p>هُدمت خلال الحقبة الاستعمارية، قبل هدم باب زكار، وكانت تقع بالقرب من عين الجماعة وملعب البولينغ، وتطل على شارع ماغنتا. وكان يُسلك عبرها للوصول إلى كوركاح، وبن علال، وباب الغربي.
+</p>
+</div>
+</div>
+<div class="gate-card noimg">
+<div class="gimg-wrap"><div class="bastion-icon">M</div></div>
+<div class="gate-body">
+<div class="gname">باب يدمَر</div>
+<div class="galt">على السور الجنوبي</div>
+<p>كانت أقل ضخامة من البوابات السابقة، وكانت تؤدي إلى يدمّر، وعين البركوك، وزوغالة. ويُقال إن إحدى فرق حملة المارشال فاليه تمكّنت من التسلل إلى المدينة عبر هذه البوابة الصغيرة أثناء الاستيلاء عليها.
+</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="chronologie">
+<div class="wrap">
+<div class="section-head reveal">
+<div class="eyebrow">IV.3 — التسلسل الزمني للتحولات </div>
+<h2 class="section-title">ثمانية قرون من سور لم يتوقف عن التغير</h2>
+<p class="lede">دمرت كل حضارة المسار نفسه أو أعادت استعماله أو أعادت رسمه. استكشفوا المراحل الثماني لتحوله.</p>
+</div>
+<div class="morph-wrap reveal">
+<div class="morph-frame" id="morphFrame">
+<div class="sweep" id="sweep"></div>
+<div class="morph-overlay">
+<div>
+<div class="morph-tag" id="mTag">—</div>
+<div class="morph-title" id="mTitle">—</div>
+<div class="morph-dates" id="mDates">—</div>
+</div>
+<div class="morph-stats" id="mStats"></div>
+</div>
+</div>
+<p class="morph-desc" id="mDesc"></p>
+<div class="era-progress" id="eraProgress"></div>
+<div class="era-tabs" id="eraTabs"></div>
+</div>
+</div>
+</section>
+<section id="actuel">
+<div class="wrap">
+<div class="section-head reveal">
+<div class="eyebrow">V — الأسوار سنة 2023 </div>
+<h2 class="section-title">ما تبقى منه</h2>
+</div>
+<div class="duo reveal">
+<img alt="Les remparts de Miliana en 2023" src="images/image13.jpg"/>
+<img alt="Les remparts de Miliana en 2023" src="images/image14.jpg"/>
+</div>
+<p class="callout reveal">يوجد السور اليوم في حالة متقدمة من التدهور — وهو آخر جزء مرئي من سور كان قد بدأ، منذ سنة 1849، في إفساح المجال أمام المدينة الحديثة.</p>
+</div>
+</section>
+<section id="synthese">
+<div class="wrap">
+<div class="section-head reveal">
+<div class="eyebrow">VI — الخلاصة</span></div>
+<h2 class="section-title">التحولات، فترة بعد فترة</h2>
+</div>
+<div class="reveal" style="overflow-x:auto;">
+<table class="syn-table">
+<thead><tr><th>الفترة</th><th>التحول(ات)</th></tr></thead>
+<tbody>
+<tr><td class="period">الفترة الرومانية</td><td><ul><li>نشأة مدينة زوكابار</li><li>تشييد سور دفاعي بثلاثة أبواب</li></ul></td></tr>
+<tr><td class="period">الغزو الوندالي</td><td><ul><li>تدمير المدينة الرومانية</li><li>أسوار مهدمة جزئيًا</li></ul></td></tr>
+<tr><td class="period">الفترة الإسلامية <span style="color:var(--paper-faint); font-size:12pt;">(قبل 1515)</span></td><td>—</td></tr>
+<tr><td class="period">الفترة العثمانية</td><td><ul><li>إعادة البناء فوق بقايا المدينة الرومانية</li><li>تشييد سور جديد يحيط بالمدينة</li></ul></td></tr>
+<tr><td class="period">الاستعمارية — 1842–1844</td><td><ul><li>ترميم السور العثماني</li><li>إنشاء باب رابع:<sup>e</sup> باب زكار</li></ul></td></tr>
+<tr><td class="period">الاستعمارية — 1930–1962</td><td><ul><li>هدم السور</li><li>إنشاء طريق دائري واسع</li></ul></td></tr>
+<tr><td class="period">فترة ما بعد الاستعمار</td><td>—</td></tr>
+<tr><td class="period">الفترة الحالية</td><td><ul><li>السور في حالة متقدمة من التدهور</li></ul></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="conclusion">
+<div class="wrap">
+<div class="section-head reveal">
+<div class="eyebrow">VII — الخاتمة</div>
+</div>
+<div class="conclusion-block reveal">
+<p>تُعد أسوار مليانة من بين <em>أهم الكنوز التراثية</em> التي تزخر بها المدينة. وهي تشهد إلى يومنا هذا على غنى تاريخ عريق يمتد لألف عام، مرّت به حضارات متعددة — رومانية وإسلامية وعثمانية واستعمارية — أسهمت كل واحدة منها في تأسيسها وصياغة مشهدها المعماري والعمراني.</p>
+</div>
+</div>
+</section>
+<section id="sources">
+<div class="wrap">
+<div class="section-head reveal">
+<div class="eyebrow">VIII — المراجع الببليوغرافية</div>
+</div>
+<ul class="refs reveal">
+<li>Daniel Babo, Des hommes et des lieux, p. 206.</li>
+<li>Emmanuelle Papot, Abd El-Kader (1808–1883), chef spirituel et militaire algérien, مقال على الويب، جويلية 2008.</li>
+<li>Mahfoud Kaddache, L'Émir Abdelkader, Alger, 1974.</li>
+<li>Marcel Emerit, L'Algérie à l'époque d'Abdelkader, Paris, p. 120.</li>
+<li>Mohamed Hadj-Sadok, Miliana et son wali Sidi Ahmed Benyoucef, 1989.</li>
+<li>Mohamed Landjerit, Miliana d'antan.</li>
+<li>PPSMVSS, Miliana.</li>
+</ul>
+</div>
+</section>
+<footer>
+<div class="fmark">M</div>
+<div class="finst">الجمهورية الجزائرية الديمقراطية الشعبية <br/> وزارة الثقافة والفنون  - مديرية الثقافة لولاية عين الدفلى</div>
+<div class="finst">مكتب الدراسات : الهندسة والبناء<br/>
+دراسات وترميم المواقع والمعالم التاريخية<br/>
+12، شارع خليفة بوخلفة – الجزائر<br/>
+الهاتف/الفاكس: 021 63 36 41<br/>
+البريد الإلكتروني: algerestauration@yahoo.fr
+</div>
+<div class="fnote">الموقع تم تصميمه من طرف فريق DZ Print</div>
+</footer>
+<script>
+// nav scroll state
+const nav = document.getElementById('siteNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, {passive:true});
+
+// reveal on scroll
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, {threshold:0.12});
+revealEls.forEach(el => io.observe(el));
+
+// ===== ERA MORPH DATA =====
+const eras = [
+{num:'I',tag:'التأسيس',label:'الفترة الرومانية',dates:'27 – 25 ق.م → القرن الخامس',img:'image10',filter:'none',stats:[['التأسيس','25–27 ق.م'],['الاسم القديم','زوكابار'],['الأبواب','3']],desc:"استقرت حامية رومانية على النتوء الصخري لزكار لمراقبة سهل الشلف. وأصبحت زوكابار من المدن الكبرى في موريطانيا القيصرية ومقرًا لأسقفية. وأحاط بالمدينة سور دفاعي بثلاثة أبواب — شمالًا نحو قيصرية، جنوبًا نحو لامديا، وغربًا نحو أوبيـدوم نوفوم."},
+{num:'II',tag:'الدمار',label:'الغزو الوندالي',dates:'القرن الخامس – السادس',img:'image10',filter:'sepia',stats:[['المدينة','مُدمرة'],['السور','مهدّم جزئيًا'],['البقايا','نقوش لاتينية']],desc:"أنهى وصول الوندال إلى شمال إفريقيا العصر الروماني. واختفت معظم المعالم القديمة، ولم يبقَ سوى جزء من سور مهدّم وبعض حجارة البناء التي تحمل نصوصًا لاتينية."},
+{num:'III',tag:'إعادة التأسيس',label:'الفترة الإسلامية',dates:'972 – 1517',img:'image15',filter:'none',stats:[['إعادة التأسيس','972، بولوغين بن زيري'],['السلالات','4 متعاقبة'],['1517','عروج بربروس']],desc:"بعد فترة طويلة من النسيان، عادت المدينة إلى الظهور سنة 972 في عهد بولوغين بن زيري. ثم تعاقب عليها المرابطون والموحدون والحفصيون والزيانيون، قبل أن يُدخلها عروج بربروس ضمن المجال العثماني سنة 1517."},
+{num:'IV',tag:'سوران',label:'الفترة العثمانية',dates:'1517 – 1830',img:'image10',filter:'cool',stats:[['الأسوار','2'],['القصبة','جنوب شرق المدينة'],['الوضع','أول قياد في المنطقة']],desc:"أعاد العثمانيون استعمال البقايا الرومانية وشيدوا سورين: أحدهما محصن يحيط بالقصبة جنوب شرق المدينة، والآخر يطوق الجهتين الشرقية والشمالية، وكانت المدينة أول قياد في المنطقة تابعًا لبايلك التيطري."},
+{num:'V',tag:'مقر الخلافة',label:'خلافة الأمير عبد القادر',dates:'1835 – 1840',img:'image5',filter:'none',stats:[['الدخول','أبريل 1835'],['الخليفة','المهدي بن الصغير، ثم بن علال'],['الاحتلال الفرنسي','1840']],desc:"بعد معاهدة دي ميشال في 24 فبراير 1834، جعل الأمير عبد القادر مليانة مقرًا لخلافته واستقبله السكان بحفاوة. وفي سنة 1839 نقض الفرنسيون الصلح، واحتلت المدينة سنة 1840 رغم المقاومة التي قادها بن علال وقبائل زكار."},
+{num:'VI',tag:'التنظيم العمراني',label:'إعادة الهيكلة الاستعمارية',dates:'1842 – 1844',img:'image11',filter:'none',stats:[['الباب المنشأ','باب زكار'],['النوافير','9 نوافير عمومية'],['السور العثماني','رُمم']],desc:"خطط المهندسون العسكريون الفرنسيون المدينة الجديدة: شوارع وأرصفة مزروعة بالأشجار، فتح طرق جديدة، إنشاء باب زكار وترميم السور العثماني، إلى جانب ظهور النوافير والمباني العمومية مثل البلدية والمدارس."},
+{num:'VII',tag:'الطريق الدائري',label:'التوسعات والهدم',dates:'1849 – 1962',img:'image12',filter:'none',stats:[['1849','نقل الأسوار غربًا'],['1881','مدينة مدنية / عسكرية'],['1930–1962','هدم السور الشمالي']],desc:"في سنة 1849 نُقل جزء من الأسوار نحو الغرب لإقامة المدينة الحديثة. ثم توسعت المدينة غربًا بين 1849 و1930 وشمالًا بين 1930 و1962، حيث هُدم السور لصالح طريق دائري واسع."},
+{num:'VIII',tag:'الحالة الحالية',label:'مليانة اليوم',dates:'1962 – 2023',img:'image13',filter:'none',stats:[['المتبقي','السور الجنوبي / الجنوب الشرقي / الجنوب الغربي'],['الارتفاع الأصلي','7 إلى 8 م'],['الطول الأصلي','≈ 3 كم']],desc:"تواصل المدينة نموها الخطي، ويحدها زكار شمالًا والمنحدر جنوبًا. ومن الأسوار الأصلية لم يبقَ سوى السور الجنوبي، في حالة متقدمة من التدهور، شاهدًا أخيرًا على تاريخ يمتد لألفي عام."}
+];
+
+const IMAGES = {"image1": "images/image1.jpg", "image2": "images/image2.jpg", "image3": "images/image3.jpg", "image4": "images/image4.jpg", "image5": "images/image5.jpg", "image6": "images/image6.jpg", "image7": "images/image7.jpg", "image8": "images/image8.jpg", "image9": "images/image9.jpg", "image10": "images/image10.jpg", "image11": "images/image11.jpg", "image12": "images/image12.jpg", "image13": "images/image13.jpg", "image14": "images/image14.jpg", "image15": "images/image15.jpg"};
+
+const frame = document.getElementById('morphFrame');
+const sweep = document.getElementById('sweep');
+const tabsEl = document.getElementById('eraTabs');
+const progEl = document.getElementById('eraProgress');
+const mTag = document.getElementById('mTag');
+const mTitle = document.getElementById('mTitle');
+const mDates = document.getElementById('mDates');
+const mStats = document.getElementById('mStats');
+const mDesc = document.getElementById('mDesc');
+
+let layers = [];
+let current = -1;
+
+function filterCss(f){
+  if(f==='sepia') return 'sepia(0.55) saturate(0.7) brightness(0.8) contrast(1.05)';
+  if(f==='cool') return 'saturate(0.6) hue-rotate(-8deg) brightness(0.88)';
+  return 'saturate(0.92) brightness(0.94)';
+}
+
+function buildTabs(){
+  eras.forEach((e,i)=>{
+    const b = document.createElement('button');
+    b.className = 'era-tab';
+    b.textContent = e.num + ' · ' + e.label;
+    b.addEventListener('click', ()=> goTo(i));
+    tabsEl.appendChild(b);
+    const bar = document.createElement('i');
+    progEl.appendChild(bar);
+  });
+}
+
+function renderStats(stats){
+  mStats.innerHTML = '';
+  stats.forEach(([k,v])=>{
+    const d = document.createElement('div');
+    d.className='s';
+    d.innerHTML = '<div class="k">'+k+'</div><div class="v">'+v+'</div>';
+    mStats.appendChild(d);
+  });
+}
+
+function goTo(i){
+  if(i===current) return;
+  const e = eras[i];
+
+  const img = document.createElement('img');
+  img.src = IMAGES[e.img];
+  img.alt = e.label;
+  const layer = document.createElement('div');
+  layer.className = 'layer';
+  layer.style.filter = filterCss(e.filter);
+  layer.appendChild(img);
+  frame.insertBefore(layer, frame.firstChild);
+  layers.push(layer);
+
+  requestAnimationFrame(()=>{
+    layer.classList.add('active');
+    sweep.classList.remove('go'); void sweep.offsetWidth; sweep.classList.add('go');
+  });
+
+  setTimeout(()=>{
+    layers.forEach(l => { if(l!==layer){ l.remove(); } });
+    layers = [layer];
+  }, 1250);
+
+  mTag.textContent = e.num + ' — ' + e.tag;
+  mTitle.textContent = e.label;
+  mDates.textContent = e.dates;
+  mDesc.textContent = e.desc;
+  renderStats(e.stats);
+
+  [...tabsEl.children].forEach((b,idx)=> b.classList.toggle('active', idx===i));
+  [...progEl.children].forEach((bar,idx)=>{
+    bar.classList.toggle('done', idx<i);
+    bar.classList.toggle('now', idx===i);
+  });
+
+  current = i;
+}
+
+buildTabs();
+goTo(0);
+
+let autoplay = setInterval(()=>{
+  goTo((current+1) % eras.length);
+}, 6500);
+tabsEl.addEventListener('click', ()=>{ clearInterval(autoplay); });
+document.getElementById('morphFrame').addEventListener('click', ()=>{ clearInterval(autoplay); goTo((current+1) % eras.length); });
+</script>
+</body>
+</html>
